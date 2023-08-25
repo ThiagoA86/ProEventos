@@ -15,6 +15,7 @@
     <tr>
       <th><button type="button" class="btn btn-outline-light btn-sm"
         (click)="alterarImagem()">
+        <i class="{{mostrarImagem?'fa fa-eye':'fa fa-eye-slash'}}"></i>
         {{mostrarImagem?"Ocultar":"Exibir"}}
         </button>
       </th>
@@ -32,20 +33,24 @@
       <td>
         <img [collapse]="!mostrarImagem"
         [isAnimated]="true"
-        src="assets/{{evento.imageURL}}"
+        src="assets/{{evento.imagemURL}}"
         [style.width.px]="widthImg"
         [style.margin.px]="marginImg"
         >
       </td>
-      <td>{{evento.eventoID}}</td>
+      <td>{{evento.id}}</td>
       <td>{{evento.tema}}</td>
       <td>{{evento.local}}</td>
       <td>{{evento.dataEvento}}</td>
       <td>{{evento.qtdPessoas}}</td>
-      <td>{{evento.lote}}</td>
+      <td>{{evento.lotes[0].Nome}}</td>
       <td>
-        <button type="button" class="btn btn-primary btn-sm mr-2">Editar</button>
-        <button type="button" class="btn btn-warning btn-sm mr-2">Excluir</button>
+        <button type="button" class="btn btn-primary btn-sm mr-2">
+          <i class="fa fa-edit"></i>
+          Editar</button>
+        <button type="button" class="btn btn-warning btn-sm mr-2">
+          <i class="fa fa-trash"></i>
+          Excluir</button>
       </td>
     </tr>
   </tbody>
